@@ -7,7 +7,6 @@ import {
     provide,
     ref
 } from 'vue'
-import Main from './components/Main.vue'
 import router from "./router"
 export default {
     name: 'App',
