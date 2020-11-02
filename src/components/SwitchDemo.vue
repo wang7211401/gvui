@@ -1,6 +1,6 @@
 <template>
 <div>
-    <Switch v-model:value="y">
+    <Switch v-model:value="checked">
 </div>
 </template>
 
@@ -14,9 +14,9 @@ export default {
         Switch
     },
     setup() {
-        const y = ref(true)
+        const checked = ref(true)
         return {
-            y
+            checked
         }
     }
 }
