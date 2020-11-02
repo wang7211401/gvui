@@ -1,6 +1,6 @@
 <template>
 <div>
-    <Switch v-model:value="checked">
+    <Switch v-model:value="checked" />
 </div>
 </template>
 
