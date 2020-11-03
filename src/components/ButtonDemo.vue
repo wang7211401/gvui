@@ -2,7 +2,7 @@
 <div>Button 示例</div>
 <h1 class="mt-2">示例1</h1>
 <div class="mt-2">
-    <Button theme="button">按钮</Button>
+    <Button theme="button" @click="onClick">按钮</Button>
     <Button theme="link">按钮</Button>
     <Button theme="text">按钮</Button>
 </div>
@@ -53,6 +53,7 @@
     <Button loading>加载中</Button>
     <Button theme="link" loading>禁用链接按钮</Button>
     <Button theme="text" loading>禁用文字按钮</Button>
+    <Button>加载完毕</Button>
 </div>
 </template>
 
