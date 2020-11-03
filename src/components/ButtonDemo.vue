@@ -47,6 +47,13 @@
     <Button theme="link" disabled>禁用链接按钮</Button>
     <Button theme="text" disabled>禁用文字按钮</Button>
 </div>
+
+<h1 class="mt-2">示例五</h1>
+<div class="mt-2">
+    <Button loading>加载中</Button>
+    <Button theme="link" loading>禁用链接按钮</Button>
+    <Button theme="text" loading>禁用文字按钮</Button>
+</div>
 </template>
 
 <script>

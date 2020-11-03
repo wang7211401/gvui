@@ -1,5 +1,6 @@
 <template>
 <button class="gvui-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="gvui-loadingIndicator"></span>
     <slot />
 </button>
 </template>
@@ -23,6 +24,10 @@ export default {
             default: "normal"
         },
         disabled: {
+            type: Boolean,
+            default: false
+        },
+        loading: {
             type: Boolean,
             default: false
         }
@@ -211,6 +216,34 @@ $greyText: rgba(0, 0, 0, .25);
             cursor: not-allowed;
             color: $greyText;
         }
+    }
+
+    >.gvui-loadingIndicator {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        margin-right: 4px;
+        border-radius: 8px;
+        border-color: $blue $blue $blue transparent;
+        border-style: solid;
+        border-width: 2px;
+        animation: gvui-spin 1s infinite linear;
+    }
+
+    &.gvui-theme-button {
+        >.gvui-loadingIndicator {
+            border-color: #fff #fff #fff transparent;
+        }
+    }
+}
+
+@keyframes gvui-spin {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
     }
 }
 </style>
