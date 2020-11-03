@@ -1,16 +1,16 @@
 <template>
 <div>Button 示例</div>
-<h1>示例1</h1>
+<h1 class="mt-2">示例1</h1>
 <div class="mt-2">
     <Button theme="button">按钮</Button>
     <Button theme="link">按钮</Button>
     <Button theme="text">按钮</Button>
 </div>
-<h1>示例二</h1>
+<h1 class="mt-2">示例二</h1>
 <div class="mt-2">
-    <Button>按钮</Button>
-    <Button size="big">按钮</Button>
-    <Button size="small">按钮</Button>
+    <Button size="big">大按钮</Button>
+    <Button>普按钮</Button>
+    <Button size="small">小按钮</Button>
 </div>
 <div class="mt-2">
     <Button theme="link" size="big">大按钮</Button>
@@ -21,6 +21,24 @@
     <Button size="big" theme="text">大按钮</Button>
     <Button theme="text">普按钮</Button>
     <Button size="small" theme="text">小按钮</Button>
+</div>
+
+<h1 class="mt-2">示例三</h1>
+<div class="mt-2">
+
+    <Button level="main">主要按钮</Button>
+    <Button>普通按钮</Button>
+    <Button level="danger">危险按钮</Button>
+</div>
+<div class="mt-2">
+    <Button theme="link" level="main">主要链接按钮</Button>
+    <Button theme="link">普通链接按钮</Button>
+    <Button theme="link" level="danger">危险链接按钮</Button>
+</div>
+<div class="mt-2">
+    <Button theme="text" level="main">主要文字按钮</Button>
+    <Button theme="text">普通文字按钮</Button>
+    <Button theme="text" level="danger">危险文字按钮</Button>
 </div>
 </template>
 
