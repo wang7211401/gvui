@@ -1,16 +1,22 @@
 <template>
 <template v-if="visiable">
-    <div class="gvui-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="gvui-dialog-wrapper">
-        <div class="gvui-dialog">
-            <header>标题 <span class="gvui-dialog-close" @click="colse"></span></header>
-            <main>内容</main>
-            <footer>
-                <Button @click="ok">确定</Button>
-                <Button theme="text" @click="cancel">取消</Button>
-            </footer>
+    <Teleport to="body">
+        <div class="gvui-dialog-overlay" @click="onClickOverlay"></div>
+        <div class="gvui-dialog-wrapper">
+            <div class="gvui-dialog">
+                <header>
+                    <slot name="title" /> <span class="gvui-dialog-close" @click="close"></span>
+                </header>
+                <main>
+                    <slot name="content" />
+                </main>
+                <footer>
+                    <Button @click="ok">确定</Button>
+                    <Button theme="text" @click="cancel">取消</Button>
+                </footer>
+            </div>
         </div>
-    </div>
+    </Teleport>
 </template>
 </template>
 
@@ -37,35 +43,23 @@ export default {
         }
     },
     setup(props, context) {
-        const colse = () => {
-            console.log(context)
-            console.log({
-                ...props
-            })
+        const close = () => {
             context.emit('update:visiable', false)
         }
         const onClickOverlay = () => {
             props.closeOnClickOverlay ? colse() : ""
         }
         const ok = () => {
-            console.log("ok")
             if (props.ok?.() !== false) {
                 close()
             }
         }
         const cancel = () => {
-            console.log({
-                ...context.attrs
-            })
-            console.log({
-                ...props
-            })
-            props.cancel && props.cancel()
-            // context.emit('cancel')
-            // close()
+            context.emit('cancel')
+            close()
         }
         return {
-            colse,
+            close,
             onClickOverlay,
             ok,
             cancel

@@ -2,11 +2,23 @@
 <div>Dialog 示例</div>
 <h1>示例一</h1>
 <Button @click="toggleVisiable">显示Dialog</Button>
-<Dialog v-model:visiable="dialogVisiable" :cancel="cancelFn" :ok="okFn" />
+<Dialog v-model:visiable="dialogVisiable" :cancel="cancelFn" :ok="okFn">
+    <template v-slot:title>
+        <strong>
+            提示标题
+        </strong>
+    </template>
+    <template v-slot:content>
+        <div>展示内容区域</div>
+    </template>
+</dialog>
 
 <h1>示例二(取消点击遮罩层关闭)</h1>
-<Button @click="toggleVisiable">显示Dialog</Button>
-<Dialog v-model:visiable="dialogVisiable" :closeOnClickOverlay="false" :cancel="cancelFn" :ok="okFn" />
+<Button @click="toggleVisiable1">显示Dialog</Button>
+<Dialog v-model:visiable="dialogVisiable1" :closeOnClickOverlay="false" :cancel="cancelFn1" :ok="okFn1">
+    <p>第一行文字</p>
+    <p>第二行文字</p>
+</Dialog>
 </template>
 
 <script lang="ts">
@@ -32,16 +44,29 @@ export default {
             return false
         }
         const cancelFn = () => {
-            console.log(1)
-            console.log(2)
-            console.log('关闭')
+            console.log('emit')
             dialogVisiable.value = false
+        }
+
+        const dialogVisiable1 = ref(false)
+        const toggleVisiable1 = () => {
+            dialogVisiable1.value = true
+        }
+        const okFn1 = () => {
+            dialogVisiable1.value = false
+        }
+        const cancelFn1 = () => {
+            dialogVisiable1.value = false
         }
         return {
             dialogVisiable,
             toggleVisiable,
             okFn,
-            cancelFn
+            cancelFn,
+            dialogVisiable1,
+            toggleVisiable1,
+            okFn1,
+            cancelFn1
         }
     }
 }
