@@ -1,5 +1,5 @@
 <template>
-<button :class="{checked:value}" @click="toggle"><span></span></button>
+<button class="gvui-switch" :class="{'gvui-checked':value}" @click="toggle"><span></span></button>
 {{value}}
 </template>
 
@@ -22,11 +22,11 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h:22px;
 $h2:$h - 4px;
 
-button {
+.gvui-switch {
     position: relative;
     height: $h;
     width: $h*2;
@@ -45,7 +45,7 @@ button {
         transition: all 250ms;
     }
 
-    &.checked {
+    &.gvui-checked {
         background: #1890ff;
 
         >span {
@@ -63,7 +63,7 @@ button {
         }
     }
 
-    &.checked:active {
+    &.gvui-checked:active {
         >span {
             width: $h2 + 4px;
             margin-left: -4px;
