@@ -1,5 +1,5 @@
 <template>
-<button class="gvui-button" :class="classes">
+<button class="gvui-button" :class="classes" :disabled="disabled">
     <slot />
 </button>
 </template>
@@ -21,6 +21,10 @@ export default {
         level: {
             type: String,
             default: "normal"
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     },
     setup(props) {
@@ -51,6 +55,8 @@ $blue: #40a9ff;
 $radius: 4px;
 $danger:#ff4d4f;
 $text:rgba(0, 0, 0, .85);
+$grey: #f5f5f5;
+$greyText: rgba(0, 0, 0, .25);
 
 .gvui-button {
     box-sizing: border-box;
@@ -187,5 +193,24 @@ $text:rgba(0, 0, 0, .85);
         padding: 0 4px;
     }
 
+    &.gvui-theme-button {
+        &[disabled] {
+            cursor: not-allowed;
+            background: $grey;
+            color: $greyText;
+
+            &:hover {
+                border-color: $grey;
+            }
+        }
+    }
+
+    &.gvui-theme-link,
+    &.gvui-theme-text {
+        &[disabled] {
+            cursor: not-allowed;
+            color: $greyText;
+        }
+    }
 }
 </style>
