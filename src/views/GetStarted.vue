@@ -1,10 +1,12 @@
 <template>
-    <div>
-        开始使用
-    </div>
+   <Markdown path="getStarted"/>
 </template>
 <script>
+import Markdown from "../components/Markdown.vue"
 export default {
-    
+    components:{
+        Markdown
+    },
 }
 </script>
+

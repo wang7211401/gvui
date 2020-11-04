@@ -1,10 +1,11 @@
 <template>
-    <div>
-        安装
-    </div>
+   <Markdown path="install"/>
 </template>
 <script>
+import Markdown from "../components/Markdown.vue"
 export default {
-    
+    components:{
+        Markdown
+    },
 }
 </script>
