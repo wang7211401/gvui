@@ -9,13 +9,13 @@
          <div class="gvui-tabs-nav-indicator" ref="navIndicator"></div>
     </div>
     <div class="gvui-tabs-content">
-        <component class="gvui-tabs-content-item" :is="current" :key="current"></component>
+        <component class="gvui-tabs-content-item" :is="current" :key="current.props.title"></component>
     </div>
 </div>
 </template>
 
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref } from 'vue'
+import { computed, onMounted, onUpdated, ref, watchEffect } from 'vue'
 import Tab from "./Tab.vue"
 export default {
     props:{
@@ -27,19 +27,17 @@ export default {
         const selectedItem = ref<HTMLDivElement>(null)
         const navIndicator = ref<HTMLDivElement>(null)
         const container = ref<HTMLDivElement>(null)
-        const x = ()=>{
-            const {width,left:resuleLeft} = selectedItem.value.getBoundingClientRect()
-            const {left:containerLeft} = container.value.getBoundingClientRect()
-            const left =  resuleLeft - containerLeft
-            navIndicator.value.style.width = width + 'px'
-            navIndicator.value.style.left = left + 'px'
-        }
+
         onMounted(()=>{
-           x()
+            watchEffect(()=>{
+                const {width,left:resuleLeft} = selectedItem.value.getBoundingClientRect()
+                const {left:containerLeft} = container.value.getBoundingClientRect()
+                const left =  resuleLeft - containerLeft
+                navIndicator.value.style.width = width + 'px'
+                navIndicator.value.style.left = left + 'px'
+            },{flush:'post'})
         })
-        onUpdated(()=>{
-            x()
-        })
+       
         const defaults = context.slots.default()
         defaults.forEach((tag) => {
             if (tag.type !== Tab) {
