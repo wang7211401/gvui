@@ -4,7 +4,7 @@
         <div class="gvui-tabs-nav-item"
         v-for="t,index in titles" :key="index"
         :class="{selected:t === selected}"
-        :ref="el => {if(el) navItems[index] = el}"
+        :ref="el => {if(t === selected) selectedItem = el}"
          @click="select(t)">{{t}}</div>
          <div class="gvui-tabs-nav-indicator" ref="navIndicator"></div>
     </div>
@@ -24,14 +24,11 @@ export default {
         }
     },
     setup(props, context) {
-        const navItems = ref<HTMLDivElement[]>([])
+        const selectedItem = ref<HTMLDivElement>(null)
         const navIndicator = ref<HTMLDivElement>(null)
         const container = ref<HTMLDivElement>(null)
         const x = ()=>{
-            const divs = navItems.value
-            const result = divs.filter(div=>div.classList.contains('selected'))[0]
-            console.log(result)
-            const {width,left:resuleLeft} = result.getBoundingClientRect()
+            const {width,left:resuleLeft} = selectedItem.value.getBoundingClientRect()
             const {left:containerLeft} = container.value.getBoundingClientRect()
             const left =  resuleLeft - containerLeft
             navIndicator.value.style.width = width + 'px'
@@ -67,7 +64,7 @@ export default {
             titles,
             current,
             select,
-            navItems,
+            selectedItem,
             navIndicator,
             container
         }
