@@ -49,7 +49,7 @@ $svgColor:#02bcb0;
     justify-content: center;
     align-items: center;
     padding: 16px;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -94,6 +94,10 @@ $svgColor:#02bcb0;
     }
 
     @media (max-width:500px) {
+        &{
+            padding:8px;
+            background: #fff;
+        }
         >.menu {
             display: none;
         }

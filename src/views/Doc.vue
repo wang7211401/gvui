@@ -126,5 +126,10 @@ aside {
     main {
         overflow: auto;
     }
+    @media (max-width:500px) {
+        &{
+            padding: 60px 0px 16px;
+        }
+    }
 }
 </style>
