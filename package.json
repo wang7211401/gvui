@@ -7,13 +7,15 @@
   },
   "dependencies": {
     "github-markdown-css": "^4.0.0",
+    "prismjs": "^1.22.0",
     "vue": "^3.0.0-rc.1",
     "vue-router": "4.0.0-rc.1"
   },
   "devDependencies": {
+    "@vue/compiler-core": "^3.0.2",
     "@vue/compiler-sfc": "^3.0.0-rc.1",
+    "marked": "^1.2.2",
     "sass": "1.26.10",
-    "vite": "^1.0.0-rc.8",
-    "marked": "^1.2.2"
+    "vite": "^1.0.0-rc.8"
   }
 }

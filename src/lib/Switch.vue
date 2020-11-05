@@ -1,5 +1,5 @@
 <template>
-<button class="gvui-switch" :class="{'gvui-checked':value}" @click="toggle"><span></span></button>
+<button class="gvui-switch" :class="{'gvui-checked':value}" @click="toggle" :disabled="disabled"><span></span></button>
 </template>
 
 <script lang="ts">
@@ -8,7 +8,11 @@ import {
 } from 'vue'
 export default {
     props: {
-        value: Boolean
+        value: Boolean,
+        disabled:{
+            type:Boolean,
+            default:false
+        }
     },
     setup(props, context) {
         const toggle = () => {
