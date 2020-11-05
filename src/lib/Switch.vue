@@ -1,6 +1,5 @@
 <template>
 <button class="gvui-switch" :class="{'gvui-checked':value}" @click="toggle"><span></span></button>
-{{value}}
 </template>
 
 <script lang="ts">
