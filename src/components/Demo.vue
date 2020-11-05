@@ -70,9 +70,11 @@ export default {
             padding: 8px 16px;
             border-top: 1px dashed $border-color;
             >pre {
-            line-height: 1.1;
-            font-family: Consolas, 'Courier New', Courier, monospace;
-            margin: 0;
+                width: 100%;
+                white-space: pre-wrap;
+                line-height: 1.1;
+                font-family: Consolas, 'Courier New', Courier, monospace;
+                margin: 0;
             }
         }
     }

@@ -1,85 +1,31 @@
 <template>
 <div>Button 示例</div>
-<h1 class="mt-2">示例1</h1>
-<div class="mt-2">
-    <Button theme="button" @click="onClick">按钮</Button>
-    <Button theme="link">按钮</Button>
-    <Button theme="text">按钮</Button>
-</div>
-<h1 class="mt-2">示例二</h1>
-<div class="mt-2">
-    <Button size="big">大按钮</Button>
-    <Button>普按钮</Button>
-    <Button size="small">小按钮</Button>
-</div>
-<div class="mt-2">
-    <Button theme="link" size="big">大按钮</Button>
-    <Button theme="link">普按钮</Button>
-    <Button size="small" theme="link">小按钮</Button>
-</div>
-<div class="mt-2">
-    <Button size="big" theme="text">大按钮</Button>
-    <Button theme="text">普按钮</Button>
-    <Button size="small" theme="text">小按钮</Button>
-</div>
-
-<h1 class="mt-2">示例三</h1>
-<div class="mt-2">
-
-    <Button level="main">主要按钮</Button>
-    <Button>普通按钮</Button>
-    <Button level="danger">危险按钮</Button>
-</div>
-<div class="mt-2">
-    <Button theme="link" level="main">主要链接按钮</Button>
-    <Button theme="link">普通链接按钮</Button>
-    <Button theme="link" level="danger">危险链接按钮</Button>
-</div>
-<div class="mt-2">
-    <Button theme="text" level="main">主要文字按钮</Button>
-    <Button theme="text">普通文字按钮</Button>
-    <Button theme="text" level="danger">危险文字按钮</Button>
-</div>
-
-<h1 class="mt-2">示例四</h1>
-<div class="mt-2">
-    <Button disabled>禁用按钮</Button>
-    <Button theme="link" disabled>禁用链接按钮</Button>
-    <Button theme="text" disabled>禁用文字按钮</Button>
-</div>
-
-<h1 class="mt-2">示例五</h1>
-<div class="mt-2">
-    <Button loading>加载中</Button>
-    <Button theme="link" loading>禁用链接按钮</Button>
-    <Button theme="text" loading>禁用文字按钮</Button>
-    <Button>加载完毕</Button>
-</div>
+<Demo :component="Button1Demo" />
+<Demo :component="Button2Demo" />
+<Demo :component="Button3Demo" />
+<Demo :component="Button4Demo" />
+<Demo :component="Button5Demo" />
 </template>
 
 <script>
-import Button from "../lib/Button.vue"
+import Button1Demo from "./Button1.demo.vue"
+import Button2Demo from "./Button2.demo.vue"
+import Button3Demo from "./Button3.demo.vue"
+import Button4Demo from "./Button4.demo.vue"
+import Button5Demo from "./Button5.demo.vue"
+import Demo from "./Demo.vue"
 export default {
     components: {
-        Button
+        Demo,
     },
-    setup() {
-        const onClick = () => {
-            console.log('click')
-        }
-        const onFocus = () => {
-            console.log("focus")
-        }
-        return {
-            onClick,
-            onFocus
-        }
+    setup(){
+       return {
+            Button1Demo,
+            Button2Demo,
+            Button3Demo,
+            Button4Demo,
+            Button5Demo
+       }
     }
 }
 </script>
-
-<style lang="scss">
-.mt-2 {
-    margin-top: 8px;
-}
-</style>
