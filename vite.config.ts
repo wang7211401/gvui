@@ -8,7 +8,6 @@ export default {
     plugins: [md()],
     vueCustomBlockTransforms: {
         demo: (options) => {
-            console.log('options',options)
             const { code, path } = options
             const file = fs.readFileSync(path).toString()
             const parsed = baseParse(file).children.find(n => n.tag === 'demo')
