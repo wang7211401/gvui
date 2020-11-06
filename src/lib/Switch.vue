@@ -1,7 +1,7 @@
-<template>
-<button class="gvui-switch" :class="{'gvui-checked':value}" @click="toggle" :disabled="disabled"><span></span></button>
-</template>
 
+<template>
+    <button class="gvui-switch" :class="{'gvui-checked':value}" @click="toggle" :disabled="disabled"><span></span></button>
+</template>
 <script lang="ts">
 import {
     ref
@@ -24,7 +24,6 @@ export default {
     }
 }
 </script>
-
 <style lang="scss">
 $h:22px;
 $h2:$h - 4px;

@@ -6,7 +6,7 @@
             <h1>gvui</h1>
             <h2>一个基于vue3 的ui框架</h2>
             <p class="actions">
-                <a href="https://github.com">github</a>
+                <a href="https://github.com/wang7211401/gvui">github</a>
                 <router-link to="/doc">开始</router-link>
             </p>
         </div>
