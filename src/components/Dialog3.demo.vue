@@ -1,4 +1,4 @@
-<demo>支持 js 弹框</demo>
+<demo>一键打开 Dialog</demo>
 <template>
     <div>
         <Button @click="showDialog">showDialog</Button>

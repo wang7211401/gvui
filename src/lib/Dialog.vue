@@ -47,7 +47,7 @@ export default {
             context.emit('update:visiable', false)
         }
         const onClickOverlay = () => {
-            props.closeOnClickOverlay ? colse() : ""
+            props.closeOnClickOverlay ? close() : ""
         }
         const ok = () => {
             if (props.ok?.() !== false) {
